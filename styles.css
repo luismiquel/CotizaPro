@@ -575,4 +575,130 @@ textarea { resize: vertical; font-family: inherit; }
   .item-row input:nth-child(2),
   .item-row input:nth-child(3) { display: none; }
   .btn-download { font-size: 12px; padding: 7px 10px; }
+  .hero-title { font-size: 28px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-btn, .hero-btn-buy { text-align: center; }
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
+  color: #fff;
+  padding: 72px 24px 64px;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 4px 14px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  opacity: 0.88;
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+
+.hero-bullets {
+  list-style: none;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  margin-bottom: 36px;
+}
+
+.hero-bullets li {
+  font-size: 15px;
+  opacity: 0.92;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-bullets li::before {
+  content: '✓';
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 600;
+  background: #fff;
+  color: var(--primary);
+  transition: opacity 0.15s;
+}
+
+.hero-btn:hover { opacity: 0.9; }
+
+.hero-btn-buy {
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 600;
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.6);
+  transition: background 0.15s;
+}
+
+.hero-btn-buy:hover { background: rgba(255,255,255,0.1); }
+
+/* ── WhatsApp button ── */
+.btn-whatsapp {
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.btn-whatsapp:hover { background: #BBF7D0; }
+
+/* ── Tip note ── */
+.tip-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  text-align: right;
 }

@@ -517,7 +517,7 @@ async function downloadPDF() {
 
   const fileName = `cotizacion-${(clientName || 'cliente').replace(/\s+/g, '-').toLowerCase()}-${Date.now()}.pdf`;
   doc.save(fileName);
-  showToast('PDF descargado correctamente.');
+  showToast('PDF descargado. Adjunta y envía.');
 }
 
 function buildEmailContent() {
@@ -568,6 +568,18 @@ function validateEmailExport() {
   return true;
 }
 
+function buildWhatsAppText() {
+  return buildEmailContent().body;
+}
+
+function sendWhatsApp() {
+  const hasValidItem = items.some(i => (i.name || i.desc) && i.price * i.qty > 0);
+  if (!hasValidItem) { showToast('Completa la cotización antes de enviar.'); return; }
+  const text = buildWhatsAppText();
+  window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  showToast('WhatsApp abierto. Revisa y envía.');
+}
+
 function sendEmail() {
   if (!validateEmailExport()) return;
   const { to, subject, body } = buildEmailContent();
@@ -607,6 +619,7 @@ document.getElementById('btnAddItem').addEventListener('click', addItem);
 document.getElementById('btnPreview').addEventListener('click', updatePreview);
 document.getElementById('btnSave').addEventListener('click', saveQuote);
 document.getElementById('btnDownload').addEventListener('click', downloadPDF);
+document.getElementById('btnWhatsApp').addEventListener('click', sendWhatsApp);
 document.getElementById('btnEmailSend').addEventListener('click', sendEmail);
 document.getElementById('btnEmailCopy').addEventListener('click', copyEmail);
 

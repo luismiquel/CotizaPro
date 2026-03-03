@@ -22,7 +22,24 @@
       </div>
     </header>
 
-    <main class="main">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-badge">Sin registro. Sin servidor.</div>
+        <h1 class="hero-title">Cotizaciones profesionales<br>en 2 minutos</h1>
+        <p class="hero-subtitle">PDF listo para enviar + email/WhatsApp + guardado local. Sin registro.</p>
+        <ul class="hero-bullets">
+          <li>Cálculos automáticos (IVA y descuentos)</li>
+          <li>PDF profesional</li>
+          <li>Enviar por email o WhatsApp en 1 clic</li>
+        </ul>
+        <div class="hero-actions">
+          <a href="#app" class="btn btn-primary hero-btn">Probar ahora</a>
+          <a href="STRIPE_LINK_REPLACE_ME" target="_blank" rel="noopener" class="btn hero-btn-buy">Comprar</a>
+        </div>
+      </div>
+    </section>
+
+    <main class="main" id="app">
       <div class="layout">
         <section class="form-section">
           <div class="card">
@@ -132,6 +149,7 @@
             <button class="btn btn-secondary" id="btnSave">Guardar cotización</button>
             <button class="btn btn-primary" id="btnPreview">Ver vista previa</button>
           </div>
+          <p class="tip-note">Tip: usa "Copiar email" si tu correo no abre automáticamente.</p>
         </section>
 
         <aside class="preview-section" id="previewSection">
@@ -139,6 +157,7 @@
             <div class="preview-header">
               <h3>Vista previa</h3>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button class="btn btn-whatsapp btn-download" id="btnWhatsApp">WhatsApp</button>
                 <button class="btn btn-secondary btn-download" id="btnEmailSend">Enviar por email</button>
                 <button class="btn btn-secondary btn-download" id="btnEmailCopy">Copiar email</button>
                 <button class="btn btn-primary btn-download" id="btnDownload">Descargar PDF</button>

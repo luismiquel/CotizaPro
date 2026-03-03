@@ -242,3 +242,56 @@ def test_copy_email_success(page: Page, app_url):
     page.context.grant_permissions(["clipboard-read", "clipboard-write"])
     page.click("#btnEmailCopy")
     expect(page.locator("#toast")).to_contain_text("copiado")
+
+
+def test_hero_section_visible(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    expect(page.locator(".hero")).to_be_visible()
+    expect(page.locator(".hero-title")).to_contain_text("2 minutos")
+    expect(page.locator(".hero-bullets li")).to_have_count(3)
+
+
+def test_hero_probar_ahora_scrolls(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    expect(page.locator("a[href='#app']")).to_be_visible()
+
+
+def test_hero_comprar_button(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    buy_btn = page.locator("a[href='STRIPE_LINK_REPLACE_ME']")
+    expect(buy_btn).to_be_visible()
+    expect(buy_btn).to_have_attribute("target", "_blank")
+
+
+def test_whatsapp_button_present(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    expect(page.locator("#btnWhatsApp")).to_be_visible()
+
+
+def test_whatsapp_no_items_toast(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    page.locator(".btn-remove").first.click()
+    page.click("#btnWhatsApp")
+    expect(page.locator("#toast")).to_contain_text("Completa la cotización")
+
+
+def test_whatsapp_opens_with_valid_item(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    row = page.locator(".item-row").first
+    row.locator("[data-field='name']").fill("Servicio WA")
+    row.locator("[data-field='price']").fill("500")
+    row.locator("[data-field='qty']").fill("1")
+    row.locator("[data-field='name']").dispatch_event("input")
+    row.locator("[data-field='price']").dispatch_event("input")
+    row.locator("[data-field='qty']").dispatch_event("input")
+
+    with page.expect_popup():
+        page.click("#btnWhatsApp")
+    expect(page.locator("#toast")).to_contain_text("WhatsApp abierto")
+
+
+def test_tip_note_visible(page: Page, app_url):
+    page.goto(app_url, timeout=60000)
+    expect(page.locator(".tip-note")).to_be_visible()
+    expect(page.locator(".tip-note")).to_contain_text("Copiar email")
+
