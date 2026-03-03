@@ -702,3 +702,122 @@ textarea { resize: vertical; font-family: inherit; }
   margin-top: 8px;
   text-align: right;
 }
+
+/* ── Hero price line ── */
+.hero-price-line {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding: 6px 18px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+/* ── Hero trust line ── */
+.hero-trust {
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 0.2px;
+}
+
+/* ── Ideal for ── */
+.ideal-for {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.ideal-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.ideal-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ideal-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #C7D2FE;
+}
+
+.ideal-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ── Benefits ── */
+.benefits {
+  background: var(--bg);
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.benefits-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .section-heading { font-size: 18px; }
+}
+
+.benefit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  box-shadow: var(--shadow);
+}
+
+.benefit-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.benefit-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.benefit-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
